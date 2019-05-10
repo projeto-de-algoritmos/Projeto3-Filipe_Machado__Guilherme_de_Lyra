@@ -26,14 +26,14 @@ Total de moedas = 8
 
 Então, para isso surge essa solução.
 Consiste basicamente nisso:
-* Todas as quantias viram nós (de 1 a N, sendo N a maior quantia (o maior entre: maior moeda e o quanto hei de pagar))
-* Dois nós possuem uma aresta se a diferença entre os dois puder ser paga por apenas 1 moeda
+* Todas as quantias viram nós (de 1 a N, sendo N a maior quantia (o maior entre: **maior moeda** e **o quanto hei de pagar**))
 * Moedas negativas são incluídas (para o cashback funcionar)
     * ```
         ex:
         se o sistema monetário é: {1, 5, 10}
         as moedas serão: {-1, -5, -10, 1, 5, 10}
        ```
+* Dois nós possuem uma aresta entre si caso a diferença entre os dois possa ser paga por apenas 1 moeda (incluindo as negativas)
 
 É isso.
 
