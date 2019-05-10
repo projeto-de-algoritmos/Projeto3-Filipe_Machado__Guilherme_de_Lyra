@@ -1,5 +1,6 @@
 # Coin change com Djikstra
 
+## Contexto
 Bem, antes de tudo, essa ideia é totalmente baseada [nesse artigo](http://noenthuda.com/blog/2016/12/02/coin-change-problem-with-change-dijkstras-algorithm/)
 
 Agora, contextualizando:
@@ -36,6 +37,8 @@ Consiste basicamente nisso:
 
 É isso.
 
+## Rodando o Programa
+
 Para rodar o programa, basta:
 ```
 $ g++ djikstra.cpp
@@ -57,8 +60,11 @@ Moedas utilizadas:
 Quantidade total de moedas utilizadas: 2
 ```
 
-Há ainda a possibilidade de se visualizar o grafo gerado para se encontrar a solução; entretanto, vale ressaltar que caso hajam muitas moedas e/ou a quantia seja "alta", o programa ficará rodando por um tempo indefinidamente longo.
+## Visualização
+Há ainda a possibilidade de se visualizar o grafo gerado para se encontrar a solução; entretanto, vale ressaltar que caso hajam muitas moedas e/ou a quantia seja "alta", o programa ficará rodando por um tempo indefinidamente longo*.
 Um exemplo de caso em que se demora muito é [este](in).
+
+** Obs: O programa em si (de calcular a quantidade de moedas) rodará em um tempo curto, o que demora pra processar é a geração da imagem.
 
 Enfim, para se visualizar, há de se ter:
 * [xdg-open](https://linux.die.net/man/1/xdg-open) (padrão nos Linux)
@@ -71,5 +77,14 @@ $ ./a.out sim
 ```
 
 Um exemplo de imagem resultante é esta abaixo, que veio dessa [entrada](in2) (e resultou neste [arquivo dot](vis.dot)):
+```
+Sistema monetário: {1, 5, 10}
+Quantia à ser paga: 23
+```
 
 ![grafo](vis.png)
+
+
+## Referência
+
+[Coin change problem with change – Dijkstra’s Algorithm](http://noenthuda.com/blog/2016/12/02/coin-change-problem-with-change-dijkstras-algorithm/)
