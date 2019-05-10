@@ -90,6 +90,7 @@ void print_path(int dest)
 {
     auto p = dest;
     map<int, int> coins;
+    int qtd = 0;
     while(p != 0)
     {
         path.pb(p);
@@ -105,6 +106,7 @@ void print_path(int dest)
         {
             auto weight = path[i+1] - path[i];
             coins[weight]++;
+            qtd++;
         }
     }
 
@@ -115,7 +117,7 @@ void print_path(int dest)
         printf("%dx %dc%s\n", u.second, u.first, (u.first > 0 ? "" : "(cashback)"));
     }
 
-    printf("Quantidade total de moedas utilizadas: %d\n", coins.size());
+    printf("Quantidade total de moedas utilizadas: %d\n", qtd);
 }
 
 void generate_vis() {

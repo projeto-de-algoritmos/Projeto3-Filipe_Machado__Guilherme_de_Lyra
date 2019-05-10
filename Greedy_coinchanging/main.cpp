@@ -1,34 +1,52 @@
-#include <iostream>
 #include <bits/stdc++.h>
-    using namespace std;
-    
-   
+#define pb push_back
 
-    int main(){     
-        int coins[]={ 1, 5, 10};
-        int n = sizeof(coins)/sizeof(coins[0]);     
-        int V = 19;
-        vector<int> result; 
-        sort(coins, coins+n);
-        cout<<"troco para "<<V<<endl;
-        cout<<"Moedas dps do sort : \n";
-        for (auto x : coins){
-            cout << x << " ";
-        }
-        cout<<endl;
-        cout<<"Minimal coins: "<<endl;              
-        for(int i = n - 1; i>= 0; i--){
-            while(V>=coins[i]){
-                V -= coins[i];
-                result.push_back(coins[i]);
-            }         
-        }
+using namespace std;
 
-        for(int i = 0; i<result.size();i++){
-            cout<<result[i]<<" ";
-        }
-        cout<<endl;
-        
-        cout << "Its Working!!" << endl;
-            return 0;
+using vi = vector<int>;
+
+vi coins;
+const int oo { 1000000010 };
+
+int get_input()
+{
+    cout << "Insira as moedas/os valores que compõem o sistema monetário (Insira 0 para parar):\n";
+    for (int x; scanf("%d", &x) && x!=0;)
+    {
+        coins.pb(x);
     }
+
+    sort(coins.begin(), coins.end());
+
+    cout << "Insira o troco:\n";
+    int change;
+    cin >> change;
+
+    return change;
+}
+
+int main()
+{
+    int troco = get_input(), qtd = 0;
+    map<int,int> result;
+
+    for (int i = coins.size() - 1; i >= 0; i--)
+    {
+        while (troco >= coins[i])
+        {
+            troco -= coins[i];
+            result[coins[i]]++;
+            qtd++;
+        }
+    }
+
+    cout << "Moedas utilizadas:\n";
+
+    for (auto u : result)
+    {
+        printf("%dx %dc\n", u.second, u.first);
+    }
+
+    printf("Quantidade total de moedas utilizadas: %d\n", qtd);
+    return 0;
+}
