@@ -11,4 +11,4 @@ Coins[] = {10, 25, 50} //Valores de moeda
 Resultado: O valor pode ser pago usando 2 moedas.
 ```
 
-<p> Esse Algoritmo Ganancioso é ótimo sobre qualquer circunstância, porém é lento pois ultiliza o método brute force que testa todas as possibilidades possíveis de moedas e ainda não mostra quais moedas deverão ser usadas.</p>
+<p> Esse Algoritmo Ganancioso é ótimo sobre qualquer circunstância, porém é lento pois ultiliza o método brute force que testa, usando recursividade, todas as possibilidades possíveis de moedas e ainda não mostra quais moedas deverão ser usadas.</p>
