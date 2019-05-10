@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 #define pb push_back
 
 using namespace std;
@@ -10,7 +11,7 @@ const int MAX { 100010 }, oo { 1000000010 };
 // maps pois chaves negativas podem acontecer
 map<int, int> dist, pred;
 map<int, vector<ii> > adj;
-
+vi path;
 
 void dijkstra(int s, int N)
 {
@@ -87,7 +88,6 @@ int get_input()
 
 void print_path(int dest)
 {
-    vi path;
     auto p = dest;
     map<int, int> coins;
     while(p != 0)
@@ -118,10 +118,40 @@ void print_path(int dest)
     printf("Quantidade total de moedas utilizadas: %d\n", coins.size());
 }
 
-int main()
+void generate_vis() {
+    ofstream file;
+    file.open("vis.dot");
+    file << "digraph {\n";
+    set<string> result;
+    for (auto v : adj){
+        for (auto u : adj[v.first]) {
+            stringstream ss;
+            ss << "\t"<<v.first<<" -> "<<u.first<<"[label=\""<<u.second<<"\",weight=\""<<u.second;
+            if(find(path.begin(), path.end(), v.first) != path.end() && find(path.begin(), path.end(), u.first) != path.end() && u.second > 0) {
+                ss << "\",color=\"red";
+            }
+            ss <<"\"];\n";
+            result.insert(ss.str());
+        }
+    }
+    for(auto line : result) {
+        file << line << endl;
+    }
+    file << "}\n";
+    file.close();
+    system("dot -Tpng vis.dot -o vis.png");
+    system("xdg-open vis.png");
+}
+
+int main(int argc, char *argv[])
 {
     int change = get_input();
     dijkstra(0, change);
     print_path(change);
+    if (argc == 2){
+        string str = argv[1];
+        if (str == "sim")
+            generate_vis();
+    }
     return 0;
 } 

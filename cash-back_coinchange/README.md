@@ -56,3 +56,20 @@ Moedas utilizadas:
 1x 100c
 Quantidade total de moedas utilizadas: 2
 ```
+
+Há ainda a possibilidade de se visualizar o grafo gerado para se encontrar a solução; entretanto, vale ressaltar que caso hajam muitas moedas e/ou a quantia seja "alta", o programa ficará rodando por um tempo indefinidamente longo.
+Um exemplo de caso em que se demora muito é [este](in).
+
+Enfim, para se visualizar, há de se ter:
+* [xdg-open](https://linux.die.net/man/1/xdg-open) (padrão nos Linux)
+* [dot (graphviz)](https://www.graphviz.org/)
+
+Para incluir a visualização, basta adicionar o parâmetro "sim":
+```
+$ ./a.out sim
+...
+```
+
+Um exemplo de imagem resultante é esta abaixo, que veio dessa [entrada](in2) (e resultou neste [arquivo dot](vis.dot)):
+
+![grafo](vis.png)
