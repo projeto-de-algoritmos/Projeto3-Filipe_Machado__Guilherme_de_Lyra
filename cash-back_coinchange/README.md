@@ -72,7 +72,7 @@ Enfim, para se visualizar, há de se ter:
 
 Para incluir a visualização, basta adicionar o parâmetro "sim":
 ```
-$ ./a.out sim
+$ ./a.out viz
 ...
 ```
 

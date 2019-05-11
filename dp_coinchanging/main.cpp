@@ -31,9 +31,14 @@ int bruteforceCC(int troco)
     return result[troco];
 }
 
-int get_input()
+int get_input(int argc, char *argv[])
 {
-    cout << "Insira as moedas/os valores que compõem o sistema monetário (Insira 0 para parar):\n";
+    bool silent = false;
+    if (argc == 2 && strcmp(argv[1], "silent") == 0)
+    {
+        silent = true;
+    }
+    if(!silent) cout << "Insira as moedas/os valores que compõem o sistema monetário (Insira 0 para parar):\n";
     for (int x; scanf("%d", &x) && x!=0;)
     {
         coins.pb(x);
@@ -41,16 +46,16 @@ int get_input()
 
     sort(coins.begin(), coins.end());
 
-    cout << "Insira o troco:\n";
+    if(!silent) cout << "Insira o troco:\n";
     int change;
     cin >> change;
 
     return change;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
-    int troco = get_input();
+    int troco = get_input(argc, argv);
     int saida = bruteforceCC(troco);
     cout << "Moedas Disponiveis: ";
     for (auto x : coins)

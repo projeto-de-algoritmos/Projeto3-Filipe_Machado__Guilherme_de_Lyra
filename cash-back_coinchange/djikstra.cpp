@@ -62,10 +62,16 @@ void build_edges(const vi& money, int n)
     }
 }
 
-int get_input()
+int get_input(int argc, char *argv[])
 {
-    cout << "Insira as moedas/os valores que compõem o sistema monetário (Insira 0 para parar):\n";
+    bool silent = false;
+    if (argc == 2 && strcmp(argv[1], "silent") == 0)
+    {
+        silent = true;
+    }
+    if(!silent) cout << "Insira as moedas/os valores que compõem o sistema monetário (Insira 0 para parar):\n";
     vi money;
+    
     for (int x; scanf("%d", &x) && x!=0;)
     {
         money.pb(x);
@@ -75,7 +81,7 @@ int get_input()
 
     sort(money.begin(), money.end());
 
-    cout << "Insira o troco:\n";
+    if(!silent) cout << "Insira o troco:\n";
     int change;
     cin >> change;
 
@@ -147,13 +153,11 @@ void generate_vis() {
 
 int main(int argc, char *argv[])
 {
-    int change = get_input();
+    int change = get_input(argc, argv);
     dijkstra(0, change);
     print_path(change);
-    if (argc == 2){
-        string str = argv[1];
-        if (str == "sim")
-            generate_vis();
+    if (argc == 2 && strcmp(argv[1], "viz") == 0){
+        generate_vis();
     }
     return 0;
 } 
