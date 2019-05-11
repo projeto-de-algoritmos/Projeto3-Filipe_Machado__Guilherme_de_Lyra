@@ -26,7 +26,7 @@ Total de moedas = 8
 
 Então, para isso surge essa solução.
 Consiste basicamente nisso:
-* Todas as quantias viram nós (de 1 a N, sendo N a maior quantia (o maior entre: **maior moeda** e **o quanto hei de pagar**))
+* Todas as quantias viram nós (de 0 a N, sendo N a maior quantia (o maior entre: **maior moeda** e **o quanto hei de pagar**))
 * Moedas negativas são incluídas (para o cashback funcionar)
     * ```
         ex:
